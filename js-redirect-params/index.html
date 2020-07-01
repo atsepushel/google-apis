@@ -5,13 +5,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-        <script src="js/redirectParams.js"></script>
+        <script src="redirectParams.js"></script>
         <script>
 
-        $(function() {            
-            var res = redirectParams();
-            $("p").text(res);
+        document.addEventListener('DOMContentLoaded', function(){
+            redirectParams();
         });
 
         </script>

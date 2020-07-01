@@ -6,13 +6,13 @@ var redirectParams = function () {
     // get params string
     var query = parser.search.substring(1);
 
-    $("a").each(function() {
 
+    Array.prototype.forEach.call(document.querySelectorAll("a"), function(ref){
         // get current href value
-        var old = $(this).attr("href").trim();
+        var old = ref.href;
 
         // @REMOVE IF NEED
-        console.log("OLD url: " + $(this).attr("href"));
+        console.log("OLD url: " + old);
 
         // clear last / if exist                
         if (old.endsWith("/")) {
@@ -25,16 +25,16 @@ var redirectParams = function () {
         // 3. http://localhost     - add "? params"
         if (old.includes("?")) {
             if (old.endsWith("?")) {
-                $(this).attr("href", old + query);
+                ref.href = old + query;
             } else {
-                $(this).attr("href", old + "&" + query);
+                ref.href = old + "&" + query;
             }
         } else {
-            $(this).attr("href", old + "?" + query);
+            ref.href = old + "?" + query;
         }
 
         // @REMOVE IF NEED
-        console.log("NEW url: " + $(this).attr("href"));
+        console.log("NEW url: " + ref.href);
     });
 
     return query;
