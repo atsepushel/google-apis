@@ -5,11 +5,23 @@ var redirectParams = function () {
 
     // get params string
     var query = parser.search.substring(1);
+    
+    var ingoring = [
+      "mailto:",
+      "http://google"
+    ];
 
 
     Array.prototype.forEach.call(document.querySelectorAll("a"), function(ref){
         // get current href value
         var old = ref.href;
+        
+        // check for ignore
+        for (var i = 0; i < ingoring.length; i++) {
+            if (old.startsWith(ingoring[i])) {
+                return;
+            }
+        }
 
         // @REMOVE IF NEED
         console.log("OLD url: " + old);
