@@ -8,7 +8,7 @@ var redirectParams = function () {
     
     var ingoring = [
       "mailto:",
-      "http://google"
+      "google"
     ];
 
 
@@ -16,9 +16,12 @@ var redirectParams = function () {
         // get current href value
         var old = ref.href;
         
+        console.log("HOST url: " + ref.hostname);
         // check for ignore
         for (var i = 0; i < ingoring.length; i++) {
-            if (old.startsWith(ingoring[i])) {
+            
+            var v = ref.hostname || old;
+            if (v.startsWith(ingoring[i]) ) {
                 return;
             }
         }
