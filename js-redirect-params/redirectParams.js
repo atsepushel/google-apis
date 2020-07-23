@@ -20,7 +20,7 @@ var redirectParams = function () {
             var old = ref.href;
             const oldParams = new URLSearchParams(ref.search);
 
-            console.log("HOST url: " + old);
+//            console.log("HOST url: " + old);
             // check for ignore
             for (var i = 0; i < ingoring.length; i++) {
 
@@ -31,7 +31,7 @@ var redirectParams = function () {
             }
 
             // @REMOVE IF NEED
-            console.log("OLD url: " + old);
+//            console.log("OLD url: " + old);
             
             // clear last / if exist                
             if (old.endsWith("/")) {
@@ -40,15 +40,15 @@ var redirectParams = function () {
                         
             for (const key of urlParams.keys()) {
                 
-                console.log("KEY: " + key);                
+//                console.log("KEY: " + key);                
                 var ignoreParam = false;
                 
                 // ignore param if exist
                 for (const key0 of oldParams.keys()) {
                     
-                    console.log("KEY OLD: " + key0);                    
+//                    console.log("KEY OLD: " + key0);                    
                     if (key0 == key) {                        
-                        console.log("IGNORE");
+//                        console.log("IGNORE");
                         ignoreParam = true;
                         break;
                     }
@@ -74,7 +74,7 @@ var redirectParams = function () {
             }
 
             // @REMOVE IF NEED
-            console.log("NEW url: " + ref.href);
+//            console.log("NEW url: " + ref.href);
         });
     }
 };
